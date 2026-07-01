@@ -1,5 +1,4 @@
-const BASE_URL = "http://localhost:3000";
-
+const BASE_URL = window.location.origin;
 document
     .getElementById("signupBtn")
     .addEventListener("click", signup);

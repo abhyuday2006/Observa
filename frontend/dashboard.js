@@ -1,5 +1,4 @@
-const BASE_URL = "http://localhost:3000";
-const socket = io(BASE_URL);
+const BASE_URL = window.location.origin;const socket = io(BASE_URL);
 const token = localStorage.getItem("token");
 
 const projectId = new URLSearchParams(

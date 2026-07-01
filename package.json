@@ -1,0 +1,20 @@
+{
+  "name": "observa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhyuday2006/Observa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhyuday2006/Observa/issues"
+  },
+  "homepage": "https://github.com/abhyuday2006/Observa#readme"
+}
