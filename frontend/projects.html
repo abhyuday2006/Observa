@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>OBSERVA - Projects</title>
+
+    <link rel="stylesheet" href="projects.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>OBSERVA</h1>
+
+            <button id="createBtn">
+                + New Project
+            </button>
+
+        </div>
+
+        <div
+            id="projects"
+            class="projects-grid">
+
+        </div>
+
+    </div>
+
+    <!-- Create Project Modal -->
+
+    <div
+        id="modal"
+        class="modal hidden">
+
+        <div class="modal-content">
+
+            <h2>Create Project</h2>
+
+            <input
+                id="projectName"
+                type="text"
+                placeholder="Project Name"
+            >
+
+            <div class="modal-buttons">
+
+                <button id="cancelBtn">
+                    Cancel
+                </button>
+
+                <button id="saveBtn">
+                    Create
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="projects.js"></script>
+
+</body>
+
+</html>

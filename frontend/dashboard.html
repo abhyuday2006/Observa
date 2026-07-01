@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSERVA Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- const projectId = localStorage.getItem("projectId"); -->
+    <div class="topbar">
+        <div class="logo">
+            <div class="logo-dot"></div>
+            OBSERVA
+        </div>
+        <div class="topbar-meta">
+            <div class="live-indicator"><span class="live-dot"></span>Live</div>
+        </div>
+    </div>
+<!-- 
+    <nav class="nav">
+        <div class="nav-item active">Overview</div>
+        <div class="nav-item">Logs</div>
+        <div class="nav-item">Alerts</div>
+        <div class="nav-item">Services</div>
+        <div class="nav-item">Settings</div>
+    </nav> -->
+
+    <div class="main">
+
+        <div class="metrics">
+            <div class="card">
+                <h3>Total Logs</h3>
+                <p id="totalLogs">0</p>
+            </div>
+            <div class="card">
+                <h3>Error Logs</h3>
+                <p id="errorLogs">0</p>
+            </div>
+            <div class="card">
+                <h3>Warning Logs</h3>
+                <p id="warnLogs">0</p>
+            </div>
+            <div class="card">
+                <h3>Info Logs</h3>
+                <p id="infoLogs">0</p>
+            </div>
+        </div>
+
+<div class="metrics">
+    <div class="card">
+        <h3>Error Rate</h3>
+        <p id="errorRate">0%</p>
+    </div>
+
+    <div class="card">
+        <h3>Queue Waiting</h3>
+        <p id="queueWaiting">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Queue Active</h3>
+        <p id="queueActive">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Queue Failed</h3>
+        <p id="queueFailed">0</p>
+    </div>
+</div>
+
+    <div class="charts-row">
+
+        <div class="chart-card">
+            <h3>Log Level Breakdown</h3>
+            <canvas id="levelChart"></canvas>
+        </div>
+
+        <div class="section">
+            <h2>Top Services</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Logs</th>
+                    </tr>
+                </thead>
+
+                <tbody id="servicesTable"></tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+        <div class="section">
+            <h2>Recent Logs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Level</th>
+                        <th>Message</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="logsTable"></tbody>
+            </table>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="dashboard.js"></script>
+
+</body>
+</html>
