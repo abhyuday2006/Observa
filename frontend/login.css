@@ -7,11 +7,17 @@
     font-family:'IBM Plex Sans', Arial, Helvetica, sans-serif;
 }
 
+html, body{
+    height:100%;
+}
+
 body{
+
+    position:relative;
 
     background:#0b0e14;
 
-    height:100vh;
+    min-height:100vh;
 
     display:flex;
 
@@ -19,17 +25,36 @@ body{
 
     align-items:center;
 
+    padding:20px;
+
+    overflow-x:hidden;
+}
+
+/* Background grid + spotlight now live on a pseudo-element behind the
+   content, instead of being masked directly on body. Masking body itself
+   also masked its children (card, inputs, footer link) — that was why
+   the "create account" line was disappearing. */
+body::before{
+
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+
     background-image:
         linear-gradient(#1a1f2c 1px, transparent 1px),
         linear-gradient(90deg, #1a1f2c 1px, transparent 1px);
     background-size:64px 64px;
-    -webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 40%, black 20%, transparent 70%);
-    mask-image:radial-gradient(ellipse 60% 50% at 50% 40%, black 20%, transparent 70%);
+
+    -webkit-mask-image:radial-gradient(ellipse 120% 90% at 50% 40%, black 20%, transparent 70%);
+    mask-image:radial-gradient(ellipse 120% 90% at 50% 40%, black 20%, transparent 70%);
 }
 
 .login-card{
 
-    width:420px;
+    width:100%;
+    max-width:420px;
 
     background:#141924;
 
@@ -55,6 +80,8 @@ h1{
     font-family:'IBM Plex Mono', monospace;
 
     font-weight:600;
+
+    font-size:clamp(20px, 5vw, 28px);
 }
 
 p{
@@ -90,7 +117,7 @@ input{
 
     color:#e6e9ef;
 
-    font-size:15px;
+    font-size:16px; /* 16px prevents iOS Safari from auto-zooming on focus */
 
     transition:border-color .15s ease, background .15s ease;
 
@@ -164,4 +191,45 @@ button:hover{
 
 .footer a:hover{
     text-decoration:underline;
+}
+
+/* ---- Responsive breakpoints ---- */
+
+@media (max-width: 480px){
+
+    body{
+        padding:16px;
+    }
+
+    body::before{
+        background-size:40px 40px;
+        /* wider, taller spotlight so it isn't clipped on narrow screens */
+        -webkit-mask-image:radial-gradient(ellipse 160% 70% at 50% 35%, black 25%, transparent 75%);
+        mask-image:radial-gradient(ellipse 160% 70% at 50% 35%, black 25%, transparent 75%);
+    }
+
+    .login-card{
+        padding:28px 22px;
+        border-radius:12px;
+    }
+
+    .subtitle{
+        margin-bottom:22px;
+        font-size:13px;
+    }
+
+    input, button{
+        padding:12px;
+    }
+
+    .footer{
+        font-size:12.5px;
+    }
+}
+
+@media (max-width: 360px){
+
+    .login-card{
+        padding:22px 16px;
+    }
 }
